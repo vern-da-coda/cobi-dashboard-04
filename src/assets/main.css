@@ -3,7 +3,7 @@
 body::after {
     content: "";
     background-image: url("/src/assets/fake-background.png");
-    background-size: 915px 412px;
+    background-size: cover;
     opacity: 0.3;
     top: 0;
     left: 0;

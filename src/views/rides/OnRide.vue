@@ -17,8 +17,6 @@ export default {
 
 <style scoped>
 #on-ride {
-  padding-left: 140px;
-  border: 1px red solid;
   top:0;
   right: 0;
   height: 100%;
