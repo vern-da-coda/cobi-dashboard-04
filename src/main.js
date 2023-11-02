@@ -1,5 +1,4 @@
 import './assets/main.css'
-import '@/libs/cobi/0.44.0/cobi'
 
 import {createApp} from 'vue'
 import {createPinia} from "pinia";
