@@ -1,4 +1,5 @@
 <script setup>
+import Tacho from "@/views/rides/on-ride/Tacho.vue";
 import {useRideServiceStore} from "@/stores/RideServiceStore";
 
 let rideService = useRideServiceStore();
@@ -8,6 +9,7 @@ let rideService = useRideServiceStore();
 <template>
   <div id="speed">
     {{ rideService.speed }}
+    <tacho></tacho>
   </div>
 </template>
 
@@ -19,5 +21,6 @@ let rideService = useRideServiceStore();
   height: 200px;
   right: 0;
   bottom: 0;
+  font-size: 40px;
 }
 </style>
