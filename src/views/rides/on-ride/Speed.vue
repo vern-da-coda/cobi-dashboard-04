@@ -12,7 +12,7 @@ let tourService = useTourServiceStore();
   <div id="speed">
     <h2>{{ rideService.speed }}</h2>
     <h2> {{ tourService.getAverageSpeed }}  </h2>
-<!--    <tacho></tacho>-->
+    <tacho :speed="rideService.speed"></tacho>
   </div>
 
 </template>
@@ -21,8 +21,8 @@ let tourService = useTourServiceStore();
 #speed {
   position: absolute;
   border: 1px solid blue;
-  width: 200px;
-  height: 200px;
+  width: 900px;
+  height: 600px;
   right: 0;
   bottom: 0;
   font-size: 40px;
