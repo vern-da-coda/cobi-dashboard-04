@@ -1,5 +1,6 @@
 <script setup>
 import Tacho from "@/views/rides/on-ride/Tacho.vue";
+import Digit from "@/views/rides/on-ride/Digit.vue";
 import {useRideServiceStore} from "@/stores/RideServiceStore";
 import {useTourServiceStore} from "@/stores/TourServiceStore";
 
@@ -10,9 +11,12 @@ let tourService = useTourServiceStore();
 
 <template>
   <div id="speed">
+    <div id="tacho">
+      <tacho :speed="rideService.speed" :max-speed="rideService.maxSpeed"></tacho>
+    </div>
+    <digit :number="rideService.speed"></digit>
     <h2>{{ rideService.speed }}</h2>
-    <h2> {{ tourService.getAverageSpeed }}  </h2>
-    <tacho :speed="rideService.speed"></tacho>
+    <h2> {{ tourService.getAverageSpeed }} </h2>
   </div>
 
 </template>
@@ -21,10 +25,14 @@ let tourService = useTourServiceStore();
 #speed {
   position: absolute;
   border: 1px solid blue;
-  width: 900px;
-  height: 600px;
-  right: 0;
-  bottom: 0;
+  width: 20%;
+  height: 20%;
+  right: 20%;
+  bottom: 20%;
   font-size: 40px;
+}
+
+#tacho {
+//position: relative; //top: 10px;
 }
 </style>

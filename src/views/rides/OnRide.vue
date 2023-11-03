@@ -10,7 +10,6 @@ export default {
 
 <template>
   <div id="on-ride">
-    ON
     <speed></speed>
   </div>
 </template>

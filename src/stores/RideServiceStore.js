@@ -4,7 +4,7 @@ export let useRideServiceStore = defineStore('rideServiceStore', {
     state() {
         return {
             speed: 0,
-            maxSpeed: null,
+            maxSpeed: 0,
             userPower: 0,
             cadence: 0
         }
@@ -23,7 +23,7 @@ export let useRideServiceStore = defineStore('rideServiceStore', {
     },
     getters: {
         getMaxSpeed() {
-            if (this.maxSpeed === null) {
+            if (this.maxSpeed === 0) {
                 this.maxSpeed = JSON.parse(localStorage.getItem('maxSpeed'));
             }
             return this.maxSpeed;
