@@ -1,18 +1,17 @@
 <script>
 import Cobi from "@/components/Cobi.vue";
 import Views from "@/views/Views.vue";
-
 export default {
   components: {
-    Views,
     Cobi,
+    Views,
   },
 }
 </script>
 
 <template>
-  <cobi></cobi>
-  <views></views>
+  <cobi/>
+  <views/>
 </template>
 
 <style>

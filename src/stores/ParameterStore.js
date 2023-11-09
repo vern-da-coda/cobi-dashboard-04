@@ -8,10 +8,12 @@ export let useParameterStore = defineStore('parameterStore', {
     },
     getters: {
         isOnRide() {
-            return this.context === 'onRide';
+            return true;
+            // return this.context === 'onRide';
         },
         isOffRide() {
-            return this.context === 'offRide';
+            return false;
+            // return this.context === 'offRide';
         },
     }
 });

@@ -3,20 +3,20 @@ import {defineStore} from "pinia";
 export let useRideServiceStore = defineStore('rideServiceStore', {
     state() {
         return {
-            speed: 0,
+            currentSpeed: 0,
             maxSpeed: 0,
             userPower: 0,
             cadence: 0
         }
     },
     actions: {
-        setSpeed(value) {
-            this.speed = value;
+        setCurrentSpeed(value) {
+            this.currentSpeed = value;
             this.setMaxSpeed();
         },
         setMaxSpeed() {
-            if (this.speed > this.maxSpeed) {
-                this.maxSpeed = this.speed;
+            if (this.currentSpeed > this.maxSpeed) {
+                this.maxSpeed = this.currentSpeed;
                 localStorage.setItem('maxSpeed', JSON.stringify(this.maxSpeed));
             }
         },

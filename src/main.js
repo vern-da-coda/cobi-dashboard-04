@@ -9,6 +9,6 @@ import App from './App.vue'
 
 const app = createApp(App);
 
-app.use(VueKonva);
 app.use(createPinia());
+app.use(VueKonva);
 app.mount('#app');

@@ -19,7 +19,7 @@ COBI.mobile.location.subscribe(
 
 COBI.rideService.speed.subscribe(
     function (value) {
-      rideService.setSpeed(Number((value * 3.6).toFixed(1)))
+      rideService.setCurrentSpeed(Number((value * 3.6).toFixed(1)))
     }
 );
 

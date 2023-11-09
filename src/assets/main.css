@@ -1,14 +1,1 @@
 @import './cobi.css';
-
-body::after {
-    content: "";
-    background-image: url("/src/assets/fake-background.png");
-    background-size: cover;
-    opacity: 0.3;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-}
