@@ -14,9 +14,9 @@ const arcWidth = 14;
 export default {
   data() {
     return {
-      currentSpeedArcRotation: -90,
-      averageSpeedArcRotation: -90,
-      maxSpeedCeiling: 35,
+      currentCadenceArcRotation: -90,
+      averageCadenceArcRotation: -90,
+      maxCadenceCeiling: 100,
       wasMoving: true,
       stageSize: {
         width: stageWidth,
@@ -25,13 +25,13 @@ export default {
     };
   },
   props: {
-    currentSpeed: Number,
-    maxSpeed: Number,
-    averageSpeed: Number,
+    currentCadence: Number,
+    maxCadence: Number,
+    averageCadence: Number,
   },
   methods: {
     isMoving() {
-      return this.currentSpeed > 0;
+      return this.currentCadence > 0;
     },
   },
   mounted() {
@@ -39,37 +39,37 @@ export default {
     let vm = this;
 
     let movingIndicationRect = new Konva.Rect({
-      x: 105,
+      x: 0,
       y: 150,
-      width: 100,
+      width: 75,
       height: arcWidth,
       fill: colorDisabled,
     });
 
     let arcGroup = new Konva.Group({
       clip: {
-        x: 0,
+        x: 80,
         y: 0,
-        width: stageWidth / 2,
+        width: stageWidth,
         height: stageHeight,
       }
     });
 
-    let arcCurrentSpeed = new Konva.Arc(
+    let arcCurrentCadence = new Konva.Arc(
         {
-          x: 100,
+          x: 80,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,
           angle: 180,
-          rotation: -90,
+          rotation: 90,
           fill: colorEnabled,
         }
     );
 
-    let arcAverageSpeed = new Konva.Arc(
+    let arcAverageCadence = new Konva.Arc(
         {
-          x: 100,
+          x: 80,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,
@@ -80,39 +80,39 @@ export default {
 
     let arcBackground = new Konva.Arc(
         {
-          x: 100,
+          x: 80,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,
           angle: 180,
-          rotation: 90,
+          rotation: -90,
           fill: colorDisabled,
         }
     );
 
     arcGroup.add(arcBackground);
-    arcGroup.add(arcCurrentSpeed);
-    arcGroup.add(arcAverageSpeed);
+    arcGroup.add(arcCurrentCadence);
+    arcGroup.add(arcAverageCadence);
 
     this.$refs.layer.getNode().add(movingIndicationRect);
     this.$refs.layer.getNode().add(arcGroup);
 
-    function tweenCurrentSpeedArc() {
-      if (vm.maxSpeed > vm.maxSpeedCeiling) {
-        vm.maxSpeedCeiling = vm.maxSpeed;
+    function tweenCurrentCadenceArc() {
+      if (vm.maxCadence > vm.maxCadenceCeiling) {
+        vm.maxCadenceCeiling = vm.maxCadence;
       }
 
-      let factor = (100 / vm.maxSpeedCeiling) * vm.currentSpeed;
-      let rotation = Math.round((180 / 100) * factor) - 90;
+      let factor = (100 / vm.maxCadenceCeiling) * vm.currentCadence;
+      let rotation = Math.round((180 / 100) * factor * (-1)) + 90;
 
-      if (vm.currentSpeedArcRotation !== rotation) {
-        vm.currentSpeedArcRotation = rotation;
+      if (vm.currentCadenceArcRotation !== rotation) {
+        vm.currentCadenceArcRotation = rotation;
 
         let tweenSpeedArc =
             new Konva.Tween(
                 {
-                  node: arcCurrentSpeed,
-                  rotation: vm.currentSpeedArcRotation,
+                  node: arcCurrentCadence,
+                  rotation: vm.currentCadenceArcRotation,
                   easing: Konva.Easings.EaseInOut,
                   duration: .5,
                   opacity: 100
@@ -122,25 +122,25 @@ export default {
       }
     }
 
-    function tweenAverageSpeedArc() {
-      if (vm.averageSpeed !== null) {
-        let factor = (100 / vm.maxSpeedCeiling) * vm.averageSpeed;
-        let rotation = Math.round((180 / 100) * factor) + 90;
+    function tweenAverageCadenceArc() {
+      if (vm.averageCadence !== null) {
+        let factor = (100 / vm.maxCadenceCeiling) * vm.averageCadence;
+        let rotation = Math.round((180 / 100) * factor) - 90;
 
-        if (vm.averageSpeedArcRotation !== rotation) {
-          vm.averageSpeedArcRotation = rotation;
+        if (vm.averageCadenceArcRotation !== rotation) {
+          vm.averageCadenceArcRotation = rotation;
 
-          let tweenSpeedArc =
+          let tweenCadenceArc =
               new Konva.Tween(
                   {
-                    node: arcAverageSpeed,
-                    rotation: vm.averageSpeedArcRotation,
+                    node: arcAverageCadence,
+                    rotation: vm.averageCadenceArcRotation,
                     easing: Konva.Easings.EaseInOut,
                     duration: 1,
                     opacity: 100
                   }
               );
-          tweenSpeedArc.play();
+          tweenCadenceArc.play();
         }
       }
     }
@@ -152,7 +152,7 @@ export default {
         let duration = 2;
         if (vm.isMoving()) {
           color = colorEnabled;
-          duration = .1;
+          duration = .01;
         }
 
         let tweenSpeedArc =
@@ -172,8 +172,8 @@ export default {
 
     setInterval(function () {
       tweenMovingIndicator();
-      tweenCurrentSpeedArc();
-      tweenAverageSpeedArc();
+      tweenCurrentCadenceArc();
+      tweenAverageCadenceArc();
 
     }, 500);
 

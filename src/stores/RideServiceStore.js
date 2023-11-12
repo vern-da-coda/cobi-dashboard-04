@@ -6,7 +6,9 @@ export let useRideServiceStore = defineStore('rideServiceStore', {
             currentSpeed: 0,
             maxSpeed: 0,
             userPower: 0,
-            cadence: 0
+            currentCadence: 0,
+            maxCadence: 0,
+            averageCadence: 0,
         }
     },
     actions: {
@@ -20,6 +22,16 @@ export let useRideServiceStore = defineStore('rideServiceStore', {
                 localStorage.setItem('maxSpeed', JSON.stringify(this.maxSpeed));
             }
         },
+        setCurrentCadence(value) {
+            this.currentCadence = value;
+            this.setMaxCadence();
+        },
+        setMaxCadence() {
+            if (this.currentCadence > this.maxCadence) {
+                this.maxCadence = this.currentCadence;
+                localStorage.setItem('maxCadence', JSON.stringify(this.maxCadence));
+            }
+        }
     },
     getters: {
         getMaxSpeed() {
@@ -27,6 +39,12 @@ export let useRideServiceStore = defineStore('rideServiceStore', {
                 this.maxSpeed = JSON.parse(localStorage.getItem('maxSpeed'));
             }
             return this.maxSpeed;
+        },
+        getMaxCadence() {
+            if (this.maxCadence === 0) {
+                this.maxCadence = JSON.parse(localStorage.getItem('maxCadence'));
+            }
+            return this.maxCadence;
         },
     },
 });

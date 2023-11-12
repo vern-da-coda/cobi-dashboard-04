@@ -1,7 +1,7 @@
 <script setup>
-import Panel from "@/components/rides/on-ride/Panel-Right.vue";
 import SpeedNumbers from "@/views/rides/on-ride/bottom-right/SpeedNumbers.vue";
 import SpeedGraph from "@/views/rides/on-ride/bottom-right/SpeedGraph.vue";
+import Panel from "@/components/rides/on-ride/Panel-Left.vue";
 
 import {useRideServiceStore} from "@/stores/RideServiceStore";
 import {useTourServiceStore} from "@/stores/TourServiceStore";
@@ -11,13 +11,13 @@ let tourService = useTourServiceStore();
 </script>
 
 <template>
-  <div id="speedGraph">
+  <div id="speed-graph">
     <SpeedGraph
         :current-speed="rideService.currentSpeed"
         :max-speed="rideService.getMaxSpeed"
         :average-speed="tourService.averageSpeed"/>
   </div>
-  <div id="speedNumbers">
+  <div id="speed-numbers">
     <speed-numbers
         :current-speed="rideService.currentSpeed"
         :max-speed="rideService.getMaxSpeed"
@@ -29,17 +29,16 @@ let tourService = useTourServiceStore();
 </template>
 
 <style scoped>
-#speedGraph {
-  color: #fff;
+#speed-graph {
   position: relative;
   top: 200px;
   left: 15px;
 }
 
-#speedNumbers {
+#speed-numbers {
   color: #fff;
   position: relative;
-  top: 70px;
-  left: 85px;
+  top: 0;
+  left: 40px;
 }
 </style>

@@ -1,9 +1,9 @@
 <script>
 export default {
   props: {
-    currentSpeed: Number,
     maxSpeed: Number,
     averageSpeed: Number,
+    currentSpeed: Number,
   },
   methods: {
     splitSpeed() {
@@ -24,22 +24,43 @@ export default {
 
 <template>
   <div>
-    <div id="current-speed-first-character">{{ firstCharacter() }}</div>
-    <div id="current-speed-second-character">{{ secondCharacter() }}</div>
-    <div id="comma">.</div>
-    <div id="fraction-character">{{ fractionCharacter() }}</div>
-    <div id="unit">km/h</div>
+    <div id="max-speed">{{ maxSpeed }}</div>
+    <div id="average-speed">{{ averageSpeed }}</div>
+    <div id="current-speed">
+      <div id="current-speed-first-character">{{ firstCharacter() }}</div>
+      <div id="current-speed-second-character">{{ secondCharacter() }}</div>
+      <div id="current-speed-comma">.</div>
+      <div id="current-speed-fraction-character">{{ fractionCharacter() }}</div>
+      <div id="current-speed-unit">km/h</div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-#current-speed-first-character, #current-speed-second-character, #comma, #fraction-character, #unit {
+#max-speed {
+  font-size: 15px;
+  top: 34px;
+  left: 80px;
+}
+
+#average-speed {
+  font-size: 15px;
+  top: 34px;
+  left: 120px;
+}
+
+#current-speed {
+  top: 77px;
+  left: 40px;
+}
+
+#current-speed, #current-speed div, #max-speed, #current-speed, #average-speed {
   display: block;
   position: absolute;
 }
 
-#current-speed-first-character, #current-speed-second-character, #comma {
-  font-size: 70px;
+#current-speed-first-character, #current-speed-second-character, #current-speed-comma {
+  font-size: 65px;
   top: 20px;
 }
 
@@ -48,22 +69,23 @@ export default {
 }
 
 #current-speed-second-character {
-  left: 40px;
+  left: 36px;
 }
 
-#fraction-character {
+#current-speed-fraction-character {
   font-size: 40px;
   top: 10px;
   left: 85px;
 }
 
-#comma {
-  left: 82px;
+#current-speed-comma {
+  left: 74px;
 }
 
-#unit {
-  font-size: 15px;
+#current-speed-unit {
+  font-size: 11px;
   top: 35px;
-  left: 100px;
+  left: 90px;
 }
+
 </style>

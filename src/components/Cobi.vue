@@ -30,7 +30,8 @@ COBI.rideService.userPower.subscribe(
 );
 COBI.rideService.cadence.subscribe(
     function (value) {
-      rideService.cadence = Number(value);
+      rideService.setCurrentCadence(Number(value));
+      tourService.setAverageCadence(Number(value));
     }
 );
 
@@ -43,7 +44,3 @@ COBI.tourService.averageSpeed.subscribe(
 parameters.context = COBI.parameters.context()
 
 </script>
-
-<template>
-
-</template>
