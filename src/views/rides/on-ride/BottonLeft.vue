@@ -33,8 +33,8 @@ let tourService = useTourServiceStore();
 <style scoped>
 #cadence-graph {
   position: relative;
-  top: 200px;
-  left: 15px;
+  top: 205px;
+  left: 30px;
 }
 
 #cadence-numbers {

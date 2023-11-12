@@ -39,7 +39,7 @@ export default {
     let vm = this;
 
     let movingIndicationRect = new Konva.Rect({
-      x: 105,
+      x: 80,
       y: 150,
       width: 100,
       height: arcWidth,
@@ -50,14 +50,14 @@ export default {
       clip: {
         x: 0,
         y: 0,
-        width: stageWidth / 2,
+        width: 75,
         height: stageHeight,
       }
     });
 
     let arcCurrentSpeed = new Konva.Arc(
         {
-          x: 100,
+          x: 75,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,
@@ -69,7 +69,7 @@ export default {
 
     let arcAverageSpeed = new Konva.Arc(
         {
-          x: 100,
+          x: 75,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,
@@ -80,7 +80,7 @@ export default {
 
     let arcBackground = new Konva.Arc(
         {
-          x: 100,
+          x: 75,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,

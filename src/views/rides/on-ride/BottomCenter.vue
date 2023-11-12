@@ -39,6 +39,6 @@ import PanelCenterRight from "@/components/rides/on-ride/Panel-Center-Right.vue"
 
 #right {
   width: 200px;
-  right: 95px;
+  right: 90px;
 }
 </style>

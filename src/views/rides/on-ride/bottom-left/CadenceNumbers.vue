@@ -21,11 +21,14 @@ export default {
 
 <template>
   <div>
-    <div id="average-cadence">{{ averageCadence }}</div>
+    <div id="average-cadence">{{ averageCadence }}
+      <span id="average-cadence-unit">Ø</span>
+    </div>
     <div id="max-cadence">{{ maxCadence }}</div>
     <div id="current-cadence">
       <div id="current-cadence-first-character">{{ firstCharacter() }}</div>
       <div id="current-cadence-second-character">{{ secondCharacter() }}</div>
+      <div id="current-cadence-unit">cadence</div>
     </div>
   </div>
 </template>
@@ -33,19 +36,23 @@ export default {
 <style scoped>
 #max-cadence {
   font-size: 15px;
-  top: 0;
-  left: 45px;
+  top: 5px;
+  left: 75px;
 }
 
 #average-cadence {
   font-size: 15px;
-  top: 0;
-  left: 5px;
+  top: 99px;
+  left: 64px;
+}
+
+#max-cadence, #average-cadence-unit {
+  color: #00C8E6;
 }
 
 #current-cadence {
-  top: 41px;
-  left: 20px;
+  top: 46px;
+  left: 54px;
 }
 
 #current-cadence, #current-cadence div, #max-cadence, #average-cadence {
@@ -68,8 +75,8 @@ export default {
 }
 
 #current-cadence-unit {
-  font-size: 15px;
-  top: 35px;
-  left: 90px;
+  font-size: 11px;
+  top: 34px;
+  left: -42px;
 }
 </style>

@@ -1,7 +1,7 @@
 <script setup>
 import BackgroundMap from "@/views/rides/on-ride/BackgroundMap.vue";
-import BottonRight from "@/views/rides/on-ride/BottonRight.vue";
-import BottonLeft from "@/views/rides/on-ride/BottonLeft.vue";
+import BottonLeft from "@/views/rides/on-ride/BottonRight.vue";
+import BottonRight from "@/views/rides/on-ride/BottonLeft.vue";
 import BottomCenter from "@/views/rides/on-ride/BottomCenter.vue";
 </script>
 
@@ -15,12 +15,12 @@ import BottomCenter from "@/views/rides/on-ride/BottomCenter.vue";
     <bottom-center/>
   </div>
 
-  <div id="left">
-    <botton-left/>
-  </div>
-
   <div id="right">
     <botton-right/>
+  </div>
+
+  <div id="left">
+    <botton-left/>
   </div>
 
   <div id="center-background"></div>
@@ -28,16 +28,15 @@ import BottomCenter from "@/views/rides/on-ride/BottomCenter.vue";
 </template>
 
 <style scoped>
-#left, #right, #center {
+#right, #left, #center {
   position: fixed;
   bottom: -10px;
   z-index: 1;
 }
 
 #left {
-  right: -10px;
+  left: 0;
 }
-
 #center {
   height: 200px;
   bottom: -170px;
@@ -53,8 +52,8 @@ import BottomCenter from "@/views/rides/on-ride/BottomCenter.vue";
   height: 30px;
   background-color: #fff;
 }
-
 #right {
-  left: -10px;
+  right: -10px;
 }
+
 </style>

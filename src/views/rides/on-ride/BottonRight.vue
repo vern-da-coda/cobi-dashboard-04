@@ -31,14 +31,14 @@ let tourService = useTourServiceStore();
 <style scoped>
 #speed-graph {
   position: relative;
-  top: 200px;
-  left: 15px;
+  top: 205px;
+  left: 0;
 }
 
 #speed-numbers {
   color: #fff;
   position: relative;
   top: 0;
-  left: 40px;
+  left: 0;
 }
 </style>

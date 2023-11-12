@@ -25,7 +25,9 @@ export default {
 <template>
   <div>
     <div id="max-speed">{{ maxSpeed }}</div>
-    <div id="average-speed">{{ averageSpeed }}</div>
+    <div id="average-speed">
+      <span id="average-speed-unit">Ø</span> {{ averageSpeed }}
+    </div>
     <div id="current-speed">
       <div id="current-speed-first-character">{{ firstCharacter() }}</div>
       <div id="current-speed-second-character">{{ secondCharacter() }}</div>
@@ -39,18 +41,22 @@ export default {
 <style scoped>
 #max-speed {
   font-size: 15px;
-  top: 34px;
+  top: 39px;
   left: 80px;
 }
 
 #average-speed {
   font-size: 15px;
-  top: 34px;
-  left: 120px;
+  top: 133px;
+  left: 80px;
+}
+
+#max-speed, #average-speed-unit {
+  color: #00C8E6;
 }
 
 #current-speed {
-  top: 77px;
+  top: 80px;
   left: 40px;
 }
 

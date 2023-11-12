@@ -41,14 +41,14 @@ export default {
     let movingIndicationRect = new Konva.Rect({
       x: 0,
       y: 150,
-      width: 75,
+      width: 90,
       height: arcWidth,
       fill: colorDisabled,
     });
 
     let arcGroup = new Konva.Group({
       clip: {
-        x: 80,
+        x: 95,
         y: 0,
         width: stageWidth,
         height: stageHeight,
@@ -57,7 +57,7 @@ export default {
 
     let arcCurrentCadence = new Konva.Arc(
         {
-          x: 80,
+          x: 95,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,
@@ -69,7 +69,7 @@ export default {
 
     let arcAverageCadence = new Konva.Arc(
         {
-          x: 80,
+          x: 95,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,
@@ -80,7 +80,7 @@ export default {
 
     let arcBackground = new Konva.Arc(
         {
-          x: 80,
+          x: 95,
           y: 100,
           innerRadius: arcOuterRadius - arcWidth,
           outerRadius: arcOuterRadius,
