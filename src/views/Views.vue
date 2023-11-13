@@ -10,7 +10,7 @@ let parameters = useParameterStore();
 
 <template>
   <div id="on-ride-container">
-    <on-ride v-show="parameters.isOffRide"/>
+    <on-ride v-show="parameters.isOnRide"/>
   </div>
   <div id="off-ride-container">
     <off-ride v-show="parameters.isOffRide"/>

@@ -3,7 +3,6 @@ import {Map, MapStyle, config} from '@maptiler/sdk';
 import {shallowRef, onMounted, onUnmounted, markRaw} from 'vue';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 import {useMobileStore} from "@/stores/MobileStore";
-import * as dotenv from "dotenv";
 
 let mobile = useMobileStore();
 
